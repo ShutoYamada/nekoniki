@@ -35,7 +35,8 @@ yarn add gatsby-remark-external-links
 ## 設定
 `gatsby-config.js`の`gatsby-transformer-remark`下の`plugins`に追記します。
 
-```javascript:title=gatsby-config.jsplugins: [
+```javascript:title=gatsby-config.js
+plugins: [
   {
     resolve: 'gatsby-transformer-remark',
     options: {
