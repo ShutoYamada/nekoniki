@@ -22,7 +22,7 @@ tags:
   - HTTP
   - wsse
   - WSSE
-  - その他
+  - other
 ---
 ![livedoor](/img/livedoorblog.png "livedoor")
 
