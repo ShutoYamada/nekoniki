@@ -15,6 +15,8 @@ tags:
   - ブログ
   - gatsby-starter-netlify-cms
   - Netlify
+  - Gatsby
+  - GatsbyJS
 ---
 ![Gatsby](/img/how-to-build-simple-website-with-gatsbyjs-postcss-pt1.jpg "Gatsby-logo")
 
@@ -106,6 +108,16 @@ npm start
 `Wordpress`などは、最初からなんでも揃っている分、動作がやや遅いというデメリットもあるため一長一短なのかなという印象です。
 正直、**自分のポートフォリオサイト**や**個人開発のプロダクトサイト**なら手間もなく作れるため、非常に有益な技術だと思います。
 大元の`React`や`Wordpress`に比べたら、書籍やブログ記事も少ないため手探りで作業する必要がありますが、それを差し引いても学んでおいて損はないのかなと思います！
+
+```javascript
+const hoge = 'hogehoge';
+```
+
+```
+\```javascript
+const hoge = 'hogehoge';
+\```
+```
 
 ## 参考
 
