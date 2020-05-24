@@ -46,7 +46,6 @@ plugins: [
           options: {
             target: '_blank',
             rel: 'noopener',
-            hoge : 1,
           },
         },
       ]
