@@ -119,6 +119,16 @@ const hoge = 'hogehoge';
 \```
 ```
 
+```javascript:title=fuga.js
+const fuga = 'fugafuga';
+```
+
+```
+\```javascript:title=fuga.js
+const fuga = 'fugafuga';
+\```
+```
+
 ## 参考
 
 - [GatsbyJS公式](https://www.gatsbyjs.org)
