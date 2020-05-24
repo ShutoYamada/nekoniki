@@ -7,7 +7,7 @@ description: |-
   シンタックスハイライトもその一つで、技術系のブログを書く場合には必須といっても過言ではない機能です。
   今回は、Gatsby製ブログでシンタックスハイライトを表示させるライブラリを紹介します。
 featuredpost: false
-featuredimage: /img/how-to-build-simple-website-with-gatsbyjs-postcss-pt1.jpg
+featuredimage: /img/gatsby.jpg
 tags:
   - Gatsby
   - react
@@ -19,7 +19,7 @@ tags:
   - GatsbyJS
   - markdown
 ---
-![gatsby](/img/how-to-build-simple-website-with-gatsbyjs-postcss-pt1.jpg)
+![Gatsby](/img/gatsby.jpg "Gatsby-logo")
 
 ## 前提条件
 
