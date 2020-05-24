@@ -39,6 +39,12 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-prismjs-title',
+            options: {
+              className: 'your-custom-class-name'
+            }
+          },
+          {
             resolve: 'gatsby-remark-relative-images',
             options: {
               name: 'uploads',
@@ -65,7 +71,17 @@ module.exports = {
               target: '_blank',
               rel: 'noopener',
             },
-          }
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false,
+            },
+          },
         ],
       },
     },

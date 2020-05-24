@@ -15,6 +15,12 @@ tags:
 
 hogehoge.
 
+
+
+```javascript:title=test.js
+  const hello = 'hello'
+```
+
 ## 見出し1
 
 The Blue Mountains are considered by many to be a hiker's and camper's paradise. The traditional Blue Mountain trek is a 7-mile hike to the peak and consists of a 3,000-foot increase in elevation. Jamaicans prefer to reach the peak at sunrise, thus the 3–4 hour hike is usually undertaken in darkness. Since the sky is usually very clear in the mornings, Cuba can be seen in the distance.
