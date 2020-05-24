@@ -29,7 +29,7 @@ tags:
 下記の手順に従って`gatsby-cli`をインストールします。
 
 ```shell
-npm install -g gatsby-cli
+yarn global add gatsby-cli
 ```
 
 ## サイト作成・実行手順
@@ -37,7 +37,8 @@ npm install -g gatsby-cli
 
 ### サイトの作成
 
-`gatsby new`コマンドでサイトを作成します。 今回は[Quick Start | GatsbyJS](https://www.gatsbyjs.org/docs/quick-start)に従って`gatsby-site`という名前で作成します。
+`gatsby new`コマンドでサイトを作成します。 
+今回は[Quick Start | GatsbyJS](https://www.gatsbyjs.org/docs/quick-start)に従って`gatsby-site`という名前で作成します。
 
 ```shell
 gatsby new gatsby-site
@@ -52,7 +53,8 @@ cd gatsby-site
 gatsby develop
 ```
 
-デフォルトでは`localhost:8000`で立ち上がります。 `http://localhost:8000`にアクセスすると、下記の通り表示されます。
+デフォルトでは`localhost:8000`で立ち上がります。 
+`http://localhost:8000`にアクセスすると、下記の通り表示されます。
 
 ![gatsby-default](/img/gatsby-start.png "gatsby-default")
 
@@ -93,8 +95,8 @@ git clone https://github.com/netlify-templates/gatsby-starter-netlify-cms.git ga
 
 各種モジュールをインストールし、実行します。
 ```shell
-npm install
-npm start
+yarn install
+yarn start
 ```
 正常なら`localhost:8000`で下記の通り表示されると思います。
 デフォルトでは`Kaldi`のコーポレートサイトのような見た目になっているので、不要な要素や部品を削除していく必要があります。
