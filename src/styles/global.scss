@@ -32,7 +32,9 @@ pre[class*='language-'] {
 :not(pre)>code[class*='language-text'] {
   padding: 2px 10px 3px 12px;
   margin: 0 ;
-  background-color: #3c3c3c;
+  color : #f14668 !important ;
+  text-shadow: none !important ;
+  background-color: whitesmoke !important ;
 }
 
 .gatsby-highlight-code-line {

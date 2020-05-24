@@ -15,6 +15,9 @@ class TagRoute extends React.Component {
               {post.node.frontmatter.title}
             </h2>
             <p style={{color : '#658DC6'}}>
+              {post.node.frontmatter.description}
+            </p>
+            <p style={{color : '#658DC6'}}>
               {post.node.frontmatter.date}
             </p>
           </article>
@@ -79,6 +82,7 @@ export const tagPageQuery = graphql`
           }
           frontmatter {
             title
+            description
             date(formatString: "YYYY.MM.DD")
             featuredimage {
               childImageSharp {
