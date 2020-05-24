@@ -1,29 +1,80 @@
 ---
 templateKey: blog-post
-title: A beginners’ guide to brewing with Chemex
-date: 2017-01-04T15:04:10.000Z
+title: Gatsby製ブログでシンタックスハイライトを表示
+date: 2020-05-24T06:47:20.314Z
+description: |-
+  GatsbyJSはブログ制作において非常に有益なライブラリなのですが、デフォルトだと備わっていない機能がいくつかあります。
+  シンタックスハイライトもその一つで、技術系のブログを書く場合には必須といっても過言ではない機能です。
+  今回は、Gatsby製ブログでシンタックスハイライトを表示させるライブラリを紹介します。
 featuredpost: false
-featuredimage: /img/chemex.jpg
-description: Brewing with a Chemex probably seems like a complicated, time-consuming ordeal, but once you get used to the process, it becomes a soothing ritual that's worth the effort every time.
+featuredimage: /img/how-to-build-simple-website-with-gatsbyjs-postcss-pt1.jpg
 tags:
-  - brewing
-  - chemex
+  - Gatsby
+  - react
+  - ブログ
+  - シンタックスハイライト
+  - prismjs
+  - PrismJS
+  - gatsby
+  - GatsbyJS
 ---
-![chemex](/img/chemex.jpg)
+![gatsby](/img/how-to-build-simple-website-with-gatsbyjs-postcss-pt1.jpg)
 
-This week we’ll **take** a look at all the steps required to make astonishing coffee with a Chemex at home. The Chemex Coffeemaker is a manual, pour-over style glass-container coffeemaker that Peter Schlumbohm invented in 1941, and which continues to be manufactured by the Chemex Corporation in Chicopee, Massachusetts.
+## 前提条件
+- `gatsby-cli`がインストール済であること
 
-In 1958, designers at the [Illinois Institute of Technology](https://www.spacefarm.digital) said that the Chemex Coffeemaker is _"one of the best-designed products of modern times"_, and so is included in the collection of the Museum of Modern Art in New York City.
+## 各ライブラリのインストール
+必要となるライブラリをインストールしていきます。
+※[gatsby-starter-netlify-cms](https://github.com/netlify-templates/gatsby-starter-netlify-cms)をベースに作業する場合は、下記の`gatsby-transformer-remark`は既に入っているかと思います。
 
-## The little secrets of Chemex brewing
+```shell
+yarn add gatsby-transformer-remark gatsby-remark-prismjs prismjs
+```
 
-The Chemex Coffeemaker consists of an hourglass-shaped glass flask with a conical funnel-like neck (rather than the cylindrical neck of an Erlenmeyer flask) and uses proprietary filters, made of bonded paper (thicker-gauge paper than the standard paper filters for a drip-method coffeemaker) that removes most of the coffee oils, brewing coffee with a taste that is different than coffee brewed in other coffee-making systems; also, the thicker paper of the Chemex coffee filters may assist in removing cafestol, a cholesterol-containing compound found in coffee oils. Here’s three important tips newbies forget about:
+## 各ライブラリの説明
+念のため各ライブラリをざっくりと説明します。
 
-1. Always buy dedicated Chemex filters.
-2. Use a scale, don’t try to eyeball it.
-3. Never skip preheating the glass.
-4. Timing is key, don’t forget the clock.
+### gatsby-transformer-remark
+- [gatsby-transformer-remark | GatsbyJS](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/)
+- [GitHub](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-remark)
 
-The most visually distinctive feature of the Chemex is the heatproof wooden collar around the neck, allowing it to be handled and poured when full of hot water. This is turned, then split in two to allow it to fit around the glass neck. The two pieces are held loosely in place by a tied leather thong. The pieces are not tied tightly and can still move slightly, retained by the shape of the conical glass.
+`markdown`を`HTML`に変換するライブラリです。
+類似のライブラリはいくつかありますが、私はこれを使っています。
 
-For a design piece that became popular post-war at a time of Modernism and precision manufacture, this juxtaposition of natural wood and the organic nature of a hand-tied knot with the laboratory nature of glassware was a distinctive feature of its appearance.
+### prismjs
+- [Prism](https://prismjs.com/)
+- [GitHub](https://github.com/PrismJS/prism)
+
+軽量なシンタックスハイライトライブラリです。
+いくつかテーマも用意されています。
+
+### gatsby-remark-prismjs
+- [gatsby-remark-prismjs | GatsbyJS](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/)
+- [GitHub](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-prismjs)
+
+`gatsby-transformer-remark`が`markdown`を`HTML`に変換する際に`prismjs`を用いるようにするライブラリです。
+
+## 使用方法
+`gatsby-config.js`に下記の記述を追加します。
+
+```javascript:title=gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-prismjs`,
+          options: {
+            classPrefix: "language-",
+            inlineCodeMarker: null,
+            aliases: {},
+            showLineNumbers: true,
+            noInlineHighlight: false,
+          },
+        },
+      ],
+    },
+  },
+]
+```
