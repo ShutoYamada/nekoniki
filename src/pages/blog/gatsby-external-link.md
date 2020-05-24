@@ -1,33 +1,64 @@
 ---
 templateKey: blog-post
-title: Making sense of the SCAA’s new Flavor Wheel
-date: 2016-12-17T15:04:10.000Z
+title: Gatsby製ブログ内の外部リンクを別タブ対応する
+date: 2020-05-24T08:00:35.950Z
+description: |-
+  Gatsbyでブログを作っている時に、参考にしたサイトや公式サイトへのリンクを貼る機会が多々あるかと思います。
+  いわゆる「外部リンク」ですが、マークダウンでリンクを書いている場合、デフォルトでは"target=`_blank`"の指定ができません。
+  今回は、外部リンクのみ別タブで開くようにします。
 featuredpost: false
-featuredimage: /img/flavor_wheel.jpg
-description: The Coffee Taster’s Flavor Wheel, the official resource used by coffee tasters, has been revised for the first time this year.
+featuredimage: /img/gatsby.jpg
 tags:
-  - flavor
-  - tasting
+  - Gatsby
+  - gatsby
+  - GatsbyJS
+  - react
+  - ブログ
+  - 外部リンク
+  - リンク
 ---
-![flavor wheel](/img/flavor_wheel.jpg)
+![Gatsby](/img/gatsby.jpg "Gatsby-logo")
 
-The SCAA updated the wheel to reflect the finer nuances needed to describe flavors more precisely. The new descriptions are more detailed and hence allow cuppers to distinguish between more flavors.
+## 前提条件
+- `gatsby-transformer-remark`導入済
 
-While this is going to be a big change for professional coffee tasters, it means a lot to you as a consumer as well. We’ll explain how the wheel came to be, how pros use it and what the flavors actually mean.
+## ライブラリのインストール
+今回は`gatsby-remark-external-links`を使用します。
+`markdown`から`HTML`への変換時に、外部サイトのみ`target="_blank"`を指定して別タブで開くようにするライブラリです。
 
-## What the updates mean to you
+- [gatsby-remark-external-links | GatsbyJS](https://www.gatsbyjs.org/packages/gatsby-remark-external-links/)
 
-The Specialty Coffee Association of America (SCAA), founded in 1982, is a non-profit trade organization for the specialty coffee industry. With members located in more than 40 countries, SCAA represents every segment of the specialty coffee industry, including:
+```shell
+yarn add gatsby-remark-external-links
+```
 
-* producers
-* roasters
-* importers/exporters
-* retailers
-* manufacturers
-* baristas
+## 設定
+`gatsby-config.js`の`gatsby-transformer-remark`下の`plugins`に追記します。
 
-For over 30 years, SCAA has been dedicated to creating a vibrant specialty coffee community by recognizing, developing and promoting specialty coffee. SCAA sets and maintains quality standards for the industry, conducts market research, and provides education, training, resources, and business services for its members.
+```javascript:title=gatsby-config.jsplugins: [
+  {
+    resolve: 'gatsby-transformer-remark',
+    options: {
+      plugins: [
+        {
+          resolve: 'gatsby-remark-external-links',
+          options: {
+            target: '_blank',
+            rel: 'noopener',
+          },
+        },
+      ]
+    }
+  }
+]
 
-Coffee cupping, or coffee tasting, is the practice of observing the tastes and aromas of brewed coffee. It is a professional practice but can be done informally by anyone or by professionals known as "Q Graders". A standard coffee cupping procedure involves deeply sniffing the coffee, then loudly slurping the coffee so it spreads to the back of the tongue.
+```
 
-The coffee taster attempts to measure aspects of the coffee's taste, specifically the body (the texture or mouthfeel, such as oiliness), sweetness, acidity (a sharp and tangy feeling, like when biting into an orange), flavour (the characters in the cup), and aftertaste. Since coffee beans embody telltale flavours from the region where they were grown, cuppers may attempt to identify the coffee's origin.
+## 使用方法
+特別な使用方法はありません。
+今まで通りにリンクを貼って、外部サイトへのリンクのみ別タブで開かれることを確認しましょう。
+
+
+## まとめ
+今回は`Gatsby`製ブログで、外部サイトのみ別タブで開くようにするためのライブラリを紹介しました。
+こういった細かい機能も自由にカスタマイズできるのが`Gatsby`のいいところですよね。
