@@ -7,7 +7,7 @@ description: |-
   GatsbyはReactベースの静的サイトジェネレータで、非常に高速で動作します。
   このブログの画面間の遷移もサクサクと動いているので、通常のReact製アプリに比べると動作が早いことが分かると思います。
 featuredpost: false
-featuredimage: /img/how-to-build-simple-website-with-gatsbyjs-postcss-pt1.jpg
+featuredimage: /img/gatsby.jpg
 tags:
   - react
   - gatsby
@@ -18,7 +18,7 @@ tags:
   - Gatsby
   - GatsbyJS
 ---
-![Gatsby](/img/how-to-build-simple-website-with-gatsbyjs-postcss-pt1.jpg "Gatsby-logo")
+![Gatsby](/img/gatsby.jpg "Gatsby-logo")
 
 ## 前提条件
 
