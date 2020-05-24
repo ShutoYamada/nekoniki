@@ -27,7 +27,8 @@ tags:
 
 ## 各ライブラリのインストール
 
-必要となるライブラリをインストールしていきます。 ※[gatsby-starter-netlify-cms](https://github.com/netlify-templates/gatsby-starter-netlify-cms)をベースに作業する場合は、下記の`gatsby-transformer-remark`は既に入っているかと思います。
+必要となるライブラリをインストールしていきます。
+※[gatsby-starter-netlify-cms](https://github.com/netlify-templates/gatsby-starter-netlify-cms)をベースに作業する場合は、下記の`gatsby-transformer-remark`は既に入っているかと思います。
 
 ```shell
 yarn add gatsby-transformer-remark gatsby-remark-prismjs prismjs
@@ -42,14 +43,16 @@ yarn add gatsby-transformer-remark gatsby-remark-prismjs prismjs
 * [gatsby-transformer-remark | GatsbyJS](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/)
 * [GitHub](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-remark)
 
-`markdown`を`HTML`に変換するライブラリです。 類似のライブラリはいくつかありますが、私はこれを使っています。
+`markdown`を`HTML`に変換するライブラリです。 
+類似のライブラリはいくつかありますが、私はこれを使っています。
 
 ### prismjs
 
 * [Prism](https://prismjs.com/)
 * [GitHub](https://github.com/PrismJS/prism)
 
-軽量なシンタックスハイライトライブラリです。 いくつかテーマも用意されています。
+軽量なシンタックスハイライトライブラリです。 
+いくつかテーマも用意されています。
 
 ### gatsby-remark-prismjs
 
@@ -84,13 +87,15 @@ plugins: [
 ]
 ```
 
-さらに`gatsby-browser.js`に使用したい`prismjs`のテーマを指定します。 このブログでは`prism-okaidia.css`を使用しているため下記のようになります。
+さらに`gatsby-browser.js`に使用したい`prismjs`のテーマを指定します。 
+このブログでは`prism-okaidia.css`を使用しているため下記のようになります。
 
 ```javscript:title=gatsby-browser.js
 require("prismjs/themes/prism-okaidia.css")
 ```
 
-あとは細かく`CSS`を指定して完了です。 このブログの場合は`global.scss`に下記の通りに指定しています。
+あとは細かく`CSS`を指定して完了です。 
+このブログの場合は`global.scss`に下記の通りに指定しています。
 
 ```scss:title=global.scss
 pre[class*='language-'] {
@@ -121,11 +126,13 @@ pre[class*='language-'] {
 }
 ```
 
-※いくつか`!important`を指定しているのは、本来なら上位のスタイルである`prism-okaidia.css`が優先されてしまう箇所を変更するためです。 そこまで細かいデザインに拘らない場合はこの指定は不要です。
+※いくつか`!important`を指定しているのは、本来なら上位のスタイルである`prism-okaidia.css`が優先されてしまう箇所を変更するためです。 
+そこまで細かいデザインに拘らない場合はこの指定は不要です。
 
 ## 使用方法
 
-あとは`GitHub`や`Qiita`等と同じようにコードブロックを書くだけです。 バッククォート3つで囲います。 ※下記は`\`でエスケープしているため注意。
+あとは`GitHub`や`Qiita`等と同じようにコードブロックを書くだけです。 
+バッククォート3つで囲います。 ※下記は`\`でエスケープしているため注意。
 
 ````javascript
 \```javascript
@@ -139,7 +146,8 @@ const hoge = 'hogehoge';
 
 ## タイトルを表示する
 
-ソースファイルのタイトルを表示する場合は追加で`gatsby-remark-prismjs-title`を使用します。 コードスニペットの前にタイトルを表示させるライブラリです。
+ソースファイルのタイトルを表示する場合は追加で`gatsby-remark-prismjs-title`を使用します。 
+コードスニペットの前にタイトルを表示させるライブラリです。
 
 * [gatsby-remark-prismjs-title | GatsbyJS](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs-title/)
 
@@ -151,7 +159,8 @@ yarn add gatsby-remark-prismjs-add-title
 
 ### 設定
 
-`gatsby-config.js`の`'gatsby-transformer-remark'`の`plugins`に追記する形で記載します。 他のコードブロックに関わるライブラリより先に記載する必要があるので、先頭に書いておくと無難です。
+`gatsby-config.js`の`'gatsby-transformer-remark'`の`plugins`に追記する形で記載します。 
+他のコードブロックに関わるライブラリより先に記載する必要があるので、先頭に書いておくと無難です。
 
 ```javascript:title=gatsby-config.js
 plugins: [
@@ -171,7 +180,8 @@ plugins: [
 ]
 ```
 
-タイトル部分も必要に応じてスタイルを設定しましょう。 このブログは下記の通りとなっています。
+タイトル部分も必要に応じてスタイルを設定しましょう。 
+このブログは下記の通りとなっています。
 
 ```scss:title=global.scss
 .gatsby-code-title {
