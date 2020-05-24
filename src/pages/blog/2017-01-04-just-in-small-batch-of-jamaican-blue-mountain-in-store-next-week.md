@@ -109,26 +109,6 @@ npm start
 正直、**自分のポートフォリオサイト**や**個人開発のプロダクトサイト**なら手間もなく作れるため、非常に有益な技術だと思います。
 大元の`React`や`Wordpress`に比べたら、書籍やブログ記事も少ないため手探りで作業する必要がありますが、それを差し引いても学んでおいて損はないのかなと思います！
 
-```javascript
-const hoge = 'hogehoge';
-```
-
-```
-\```javascript
-const hoge = 'hogehoge';
-\```
-```
-
-```javascript:title=fuga.js
-const fuga = 'fugafuga';
-```
-
-```
-\```javascript:title=fuga.js
-const fuga = 'fugafuga';
-\```
-```
-
 ## 参考
 
 - [GatsbyJS公式](https://www.gatsbyjs.org)
