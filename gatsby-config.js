@@ -8,6 +8,12 @@ module.exports = {
       '静岡在住SEがJavascript,React,ReactNative等の開発記事を載せていきます。',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-155134150-2",
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
