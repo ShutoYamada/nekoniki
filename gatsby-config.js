@@ -9,6 +9,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+          publisherId: `ca-pub-8245101512786403`
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-155134150-2",
