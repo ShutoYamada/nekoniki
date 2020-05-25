@@ -34,16 +34,6 @@ const Footer = class extends React.Component {
                         このブログについて
                       </Link>
                     </li>
-                    <li>
-                      <a
-                        className="navbar-item"
-                        href="/admin/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Admin
-                      </a>
-                    </li>
                   </ul>
                 </section>
               </div>
@@ -98,6 +88,9 @@ const Footer = class extends React.Component {
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <p style={{textAlign : 'center'}}>© 2020 ネコニキの開発雑記</p>
         </div>
       </footer>
     )
