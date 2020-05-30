@@ -11,7 +11,7 @@ const TemplateWrapper = ({ children }) => {
   return (
     <div>
       <Helmet>
-        <html lang="en" />
+        <html lang="ja" />
         <title>{title}</title>
         <meta name="description" content={description} />
 
@@ -39,7 +39,7 @@ const TemplateWrapper = ({ children }) => {
           color="#014C86"
         />
 
-        <meta name="theme-color" content="#fff" />
+        <meta name="theme-color" content="#014C86" />
 
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
