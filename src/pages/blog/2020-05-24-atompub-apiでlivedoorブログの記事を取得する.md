@@ -1,5 +1,6 @@
 ---
 templateKey: blog-post
+url: hoge
 title: AtomPub APIでLivedoorブログの記事を取得する
 date: 2020-05-24T12:13:03.454Z
 description: |-
