@@ -1,5 +1,6 @@
 ---
 templateKey: blog-post
+url: 20200526_windows_typescript_reactnative
 title: WindowsOSでTypescript+ReactNativeの環境構築
 date: 2020-05-26T08:36:19.817Z
 description: |-
