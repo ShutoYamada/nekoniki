@@ -1,5 +1,6 @@
 ---
 templateKey: blog-post
+url: 20200526_reactnative_storage
 title: react-native-storageで端末にデータを持たせる
 date: 2020-05-26T09:02:18.238Z
 description: |-
