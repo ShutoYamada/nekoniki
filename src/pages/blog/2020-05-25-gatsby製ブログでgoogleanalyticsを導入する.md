@@ -1,5 +1,6 @@
 ---
 templateKey: blog-post
+url: 20200525_gatsby_analytics
 title: Gatsby製ブログでGoogleAnalyticsを導入する
 date: 2020-05-25T00:38:01.439Z
 description: |-

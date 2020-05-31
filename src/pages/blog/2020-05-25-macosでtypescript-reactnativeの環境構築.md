@@ -1,5 +1,6 @@
 ---
 templateKey: blog-post
+url: 20200525_mac_typescript_reactnative
 title: MacOSでTypescript+ReactNativeの環境構築
 date: 2020-05-25T10:12:01.223Z
 description: |-
