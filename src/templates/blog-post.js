@@ -4,8 +4,17 @@ import { kebabCase } from 'lodash'
 import { Helmet } from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
-import BlogPostStyle from './blog-post.module.css';
 import Content, { HTMLContent } from '../components/Content'
+import { 
+  FacebookShareButton, 
+  FacebookIcon, 
+  LineShareButton, 
+  LineIcon,
+  LinkedinShareButton, 
+  LinkedinIcon,
+  TwitterShareButton,
+  TwitterIcon
+} from 'react-share';
 
 export const BlogPostTemplate = ({
   content,
@@ -28,6 +37,7 @@ export const BlogPostTemplate = ({
             </h1>
             <p style={{border : '1px solid #658DC6', borderRadius : '0.5em', padding : 20}} >{description}</p>
             <PostContent content={content} />
+            <SNSSection title={title} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4 style={{backgroundColor : '#014C86', display : 'inline-block', color : '#FFF', marginBottom : 10, padding : 10, borderRadius : 10}}>
@@ -83,6 +93,34 @@ const BlogPost = ({ data }) => {
     </Layout>
   )
 }
+
+const SNSSection = ({title}) => {
+  const location = window.location;
+  const articleUrl = location.href;
+
+  return (
+    <div style={{marginTop : '4rem'}}>
+      <h4 style={{color : '#014C86', fontWeight : 'bold', size : 'large'}}>SNSでシェアする</h4>
+
+      <FacebookShareButton url={articleUrl}>
+        <FacebookIcon size={50} round />
+      </FacebookShareButton>
+
+      <LineShareButton url={articleUrl} style={{marginLeft : '.5em'}} >
+        <LineIcon size={50} round />
+      </LineShareButton>
+
+      <LinkedinShareButton url={articleUrl} style={{marginLeft : '.5em'}}>
+        <LinkedinIcon title={title} size={50} round />
+      </LinkedinShareButton>
+
+      <TwitterShareButton title={title} via="@inouetakumon" url={articleUrl} style={{marginLeft : '.5em'}}>
+        <TwitterIcon size={50} round />
+      </TwitterShareButton>
+    </div>
+  )
+}
+
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
