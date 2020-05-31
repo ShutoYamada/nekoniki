@@ -56,14 +56,11 @@ import {
 } from 'react-share';
 
 // SNSシェアボタンセクション
-const SNSSection = ({title}) => {
-  // window.locationより現在ページのURLを取得する
-  const location = window.location;
-  const articleUrl = location.href;
-
+// title : 記事タイトル
+// articleUrl : 記事URL
+const SNSSection = ({title, articleUrl}) => {
   return (
     <div>
-
       <FacebookShareButton url={articleUrl}>
         <FacebookIcon size={50} round />
       </FacebookShareButton>
@@ -86,37 +83,7 @@ const SNSSection = ({title}) => {
 
 あとはこの`SNSSection`を投稿記事の好きな位置に配置するだけです。
 同じく`blog-post.js`の`BlogPostTemplate`に追記します。
-
-```javascript:title=blog-post.js
-export const BlogPostTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
-  title,
-  helmet,
-}) => {
-  const PostContent = contentComponent || Content
-
-  return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            {/* 省略 */}
-            <PostContent content={content} />
-            <SNSSection title={title} />
-            {/* 省略 */}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-```
-
-あとは多少スタイルに手を加えることで、下記のようにシェアボタンが表示されます。
+さらに多少スタイルに手を加えることで、下記のようにシェアボタンが表示されます。
 
 ![sns_share](/img/sns_share.png "sns_share")
 
