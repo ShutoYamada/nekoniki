@@ -6,6 +6,8 @@ module.exports = {
     // 概要
     description:
       '静岡在住SEがJavascript,React,ReactNative等の開発記事を載せていきます。',
+    siteUrl:
+      `https://nekoniki.com/`
   },
   plugins: [
     {

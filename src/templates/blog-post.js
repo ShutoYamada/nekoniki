@@ -23,6 +23,7 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
+  url,
 }) => {
   const PostContent = contentComponent || Content
 
@@ -37,7 +38,7 @@ export const BlogPostTemplate = ({
             </h1>
             <p style={{border : '1px solid #658DC6', borderRadius : '0.5em', padding : 20}} >{description}</p>
             <PostContent content={content} />
-            <SNSSection title={title} />
+            <SNSSection title={title} articleUrl={url} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4 style={{backgroundColor : '#014C86', display : 'inline-block', color : '#FFF', marginBottom : 10, padding : 10, borderRadius : 10}}>
@@ -67,10 +68,11 @@ BlogPostTemplate.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
+  url : PropTypes.string,
 }
 
 const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post, site } = data
 
   return (
     <Layout>
@@ -87,6 +89,7 @@ const BlogPost = ({ data }) => {
             />
           </Helmet>
         }
+        url={`${site.siteMetadata.siteUrl}/${post.frontmatter.url}`}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
@@ -94,9 +97,7 @@ const BlogPost = ({ data }) => {
   )
 }
 
-const SNSSection = ({title}) => {
-  const location = window.location;
-  const articleUrl = location.href;
+const SNSSection = ({title, articleUrl}) => {
 
   return (
     <div style={{marginTop : '4rem'}}>
@@ -125,6 +126,7 @@ const SNSSection = ({title}) => {
 BlogPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
+    site : PropTypes.object,
   }),
 }
 
@@ -140,6 +142,12 @@ export const pageQuery = graphql`
         title
         description
         tags
+        url
+      }
+    },
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }
