@@ -99,7 +99,7 @@ import CameraRoll from '@react-native-community/cameraroll';
 // assetTypeは`All`,`Videos`,`Photos`のいずれか
 CameraRoll.getAlbums({assetType : ‘All’}).then((albums : CameraRoll.Alubm[]) => {
   console.log(albums);
-  // -> [ { “count” : 10, "title" : “test” }, ... ]
+  // -> [ { "count" : 10, "title" : “test” }, ... ]
 })
 ```
 
@@ -111,7 +111,7 @@ CameraRoll.getAlbums({assetType : ‘All’}).then((albums : CameraRoll.Alubm[])
 ```javascript:Test.tsx
 import CameraRoll from '@react-native-community/cameraroll';
 
-CameraRoll.getPhotos({first : 100, groupTypes : groupTypes, groupName : selectedAlbumName})
+CameraRoll.getPhotos({first : 100, groupTypes : 'All', groupName : 'Test'})
 .then((obj : CameraRoll.PhotoIdentifiersPage) => {
   // obj.egges内に画像データが存在する
 });
