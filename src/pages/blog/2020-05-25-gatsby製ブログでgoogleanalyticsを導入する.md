@@ -12,7 +12,7 @@ tags:
   - Gatsby
   - GatsbyJS
   - javascript
-  - React
+  - react
   - Google
   - GoogleAnalytics
   - ブログ
