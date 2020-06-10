@@ -11,8 +11,7 @@ featuredimage: /img/gatsby.jpg
 tags:
   - Gatsby
   - GatsbyJS
-  - gatsby
-  - react
+  - React
   - react-share
   - sns
   - SNS
@@ -58,7 +57,8 @@ import {
 // SNSシェアボタンセクション
 // title : 記事タイトル
 // articleUrl : 記事URL
-const SNSSection = ({title, articleUrl}) => {
+const SNSSection = ({title
+, articleUrl}) => {
   return (
     <div>
       <FacebookShareButton url={articleUrl}>

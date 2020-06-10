@@ -16,7 +16,6 @@ tags:
   - ReactNative
   - CameraRoll
   - react-native-cameraroll
-  - cameraroll
   - カメラロール
   - アルバム
   - album
@@ -57,7 +56,8 @@ yarn add @react-native-community/cameraroll
 cd ios && pod install
 ```
 
-続けて`Info.plist`を編集します。
+
+続けて`Info.plist`を編集します。
 パスは`ios/{アプリ名}/Info.plist`です。
 
 `iOS 10`以降は`NSPhotoLibraryUsageDescription`が必須です。

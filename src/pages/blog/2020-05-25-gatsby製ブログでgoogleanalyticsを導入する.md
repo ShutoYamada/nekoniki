@@ -11,9 +11,8 @@ featuredimage: /img/analytics-logo.jpg
 tags:
   - Gatsby
   - GatsbyJS
-  - gatsby
   - javascript
-  - react
+  - React
   - Google
   - GoogleAnalytics
   - ブログ
@@ -64,7 +63,8 @@ module.exports = {
 これで設定は完了です。
 
 ## 適用されているか確認
-実際に`GoogleAnalytics`側に反映されているかを確認しましょう。
+
+実際に`GoogleAnalytics`側に反映されているかを確認しましょう。
 手元の端末で対象ブログにアクセスした場合、`GoogleAnalytics`に管理画面で「アクティブユーザーのリアルタイム」が増えているのが分かります。
 
 ![analytics3](/img/analytics3.png "analytics3")

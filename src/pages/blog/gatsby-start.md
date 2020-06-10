@@ -9,8 +9,7 @@ description: |-
 featuredpost: false
 featuredimage: /img/gatsby.jpg
 tags:
-  - react
-  - gatsby
+  - React
   - npm
   - ブログ
   - gatsby-starter-netlify-cms
@@ -82,7 +81,8 @@ gatsby serve
 - [Starter Library | GatsbyJS](https://www.gatsbyjs.org/starters/?v=2)
 
 今回はその中の[gatsby-starter-netlify-cms](https://github.com/netlify-templates/gatsby-starter-netlify-cms)を使用したいと思います。
-※このブログも同ライブラリを使っています。
+
+※このブログも同ライブラリを使っています。
 
 ### ダウンロード
 `GitHub`からソースをcloneします。
@@ -114,4 +114,5 @@ yarn start
 ## 参考
 
 - [GatsbyJS公式](https://www.gatsbyjs.org)
-- [GitHub](https://github.com/gatsbyjs/gatsby)
+
+- [GitHub](https://github.com/gatsbyjs/gatsby)

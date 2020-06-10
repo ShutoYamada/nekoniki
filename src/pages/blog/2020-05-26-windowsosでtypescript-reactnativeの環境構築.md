@@ -10,7 +10,7 @@ featuredpost: true
 featuredimage: /img/react-native.jpg
 tags:
   - react-native
-  - react
+  - React
   - Windows
   - クロスプラットフォーム
   - アプリ開発

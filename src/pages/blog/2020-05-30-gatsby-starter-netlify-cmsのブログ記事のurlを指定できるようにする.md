@@ -13,8 +13,7 @@ featuredimage: /img/gatsby.jpg
 tags:
   - Gatsby
   - GatsbyJS
-  - gatsby
-  - react
+  - React
   - CMS
   - cms
   - Netlify

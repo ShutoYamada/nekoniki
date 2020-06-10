@@ -10,9 +10,8 @@ featuredpost: false
 featuredimage: /img/gatsby.jpg
 tags:
   - Gatsby
-  - gatsby
   - GatsbyJS
-  - react
+  - React
   - ブログ
   - 外部リンク
   - リンク
