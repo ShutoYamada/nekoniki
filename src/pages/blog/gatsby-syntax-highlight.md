@@ -10,10 +10,9 @@ featuredpost: false
 featuredimage: /img/gatsby.jpg
 tags:
   - Gatsby
-  - React
+  - react
   - ブログ
   - シンタックスハイライト
-  - prismjs
   - PrismJS
   - GatsbyJS
   - markdown

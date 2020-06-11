@@ -11,7 +11,7 @@ featuredpost: true
 featuredimage: /img/react-native.jpg
 tags:
   - react-native
-  - React
+  - react
   - iOS
   - クロスプラットフォーム
   - アプリ開発

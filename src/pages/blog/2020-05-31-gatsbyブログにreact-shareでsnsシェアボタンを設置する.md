@@ -11,7 +11,7 @@ featuredimage: /img/gatsby.jpg
 tags:
   - Gatsby
   - GatsbyJS
-  - React
+  - react
   - react-share
   - sns
   - SNS

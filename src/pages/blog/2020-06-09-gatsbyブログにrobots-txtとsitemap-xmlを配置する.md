@@ -13,7 +13,7 @@ tags:
   - gatsby
   - GatsbyJS
   - javascript
-  - React
+  - react
   - ブログ
   - SEO
   - seo

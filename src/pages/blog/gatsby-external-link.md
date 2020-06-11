@@ -11,7 +11,7 @@ featuredimage: /img/gatsby.jpg
 tags:
   - Gatsby
   - GatsbyJS
-  - React
+  - react
   - ブログ
   - 外部リンク
   - リンク

@@ -9,7 +9,7 @@ description: |-
 featuredpost: false
 featuredimage: /img/gatsby.jpg
 tags:
-  - React
+  - react
   - npm
   - ブログ
   - gatsby-starter-netlify-cms
