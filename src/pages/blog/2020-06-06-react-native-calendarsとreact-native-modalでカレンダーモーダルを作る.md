@@ -70,7 +70,7 @@ cd ios && pod install
 モーダル上でカレンダーから日付を選択して、決定ボタンで確定する方式としました。
 呼び出す際のパラメータとして、表示フラグである`visible`と確定時処理である`onConfirm`は必須となります。
 
-```javascript:title=CalendarModal.tsx
+```typescript:title=CalendarModal.tsx
 import React, {Component} from 'react';
 import { StyleSheet　} from 'react-native';
 import {Icon, Text, View, Button } from 'native-base';
@@ -241,7 +241,7 @@ const styles : StyleSheet.NamedStyles<any> = StyleSheet.create({
 
 ### 呼び出し
 
-```javascript:title=App.tsx
+```typescript:title=App.tsx
 import CalendarModal from './CalendarModal';
 
 // ...略

@@ -176,7 +176,7 @@ AppRegistry.registerComponent(appName, () => App);
 デフォルトだと`react-native run-android`で実行することができますが、簡略して`yarn run-android`で実行できるようにします。
 `iOS`でのアプリ開発も視野に入れる場合は`run-ios`も追加しておきましょう。
 
-```package.json
+```json:title=package.json
 {
   "scripts": {
     ...
@@ -195,7 +195,7 @@ copy nul images.d.ts
 
 中身は下記のようにします。
 
-```javascript:title=images.d.ts
+```typescript:title=images.d.ts
 declare module '*.svg';
 declare module '*.png';
 declare module '*.jpg';

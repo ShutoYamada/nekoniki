@@ -160,7 +160,7 @@ mv App.js src/App.tsx
 
 `App.js`のパスが変わったので、参照している`index.js`を修正します。
 
-```javascript:title=index.js
+```typescript:title=index.js
 /**
  * @format
  */
@@ -177,7 +177,7 @@ AppRegistry.registerComponent(appName, () => App);
 デフォルトだと`react-native run-ios`で実行することができますが、簡略して`yarn run-ios`で実行できるようにします。
 `Android`でのアプリ開発も視野に入れる場合は`run-android`も追加しておきましょう。
 
-```package.json
+```json=title=package.json
 {
   "scripts": {
     ...
@@ -196,7 +196,7 @@ touch images.d.ts
 
 中身は下記のようにします。
 
-```javascript:title=images.d.ts
+```typescript:title=images.d.ts
 declare module '*.svg';
 declare module '*.png';
 declare module '*.jpg';

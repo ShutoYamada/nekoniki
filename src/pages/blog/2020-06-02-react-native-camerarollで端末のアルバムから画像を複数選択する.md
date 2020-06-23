@@ -92,7 +92,7 @@ cd ios && pod install
 `getAlbums()`でアルバムの配列を取得します。
 `count`がアルバム内の画像(動画)数、`title`がアルバム名です。
 
-```javascript:Test.tsx
+```typescript:Test.tsx
 import CameraRoll from '@react-native-community/cameraroll';
 
 // 引数で取得するアルバム種別を指定できる
@@ -108,7 +108,7 @@ CameraRoll.getAlbums({assetType : ‘All’}).then((albums : CameraRoll.Alubm[])
 引数の`first`のみ必須です。
 `groupTypes`にAllを指定している場合`groupName`でアルバム名を指定しても絞り込まれないようです。
 
-```javascript:Test.tsx
+```typescript:Test.tsx
 import CameraRoll from '@react-native-community/cameraroll';
 
 CameraRoll.getPhotos({first : 100, groupTypes : 'All', groupName : 'Test'})
@@ -123,7 +123,8 @@ CameraRoll.getPhotos({first : 100, groupTypes : 'All', groupName : 'Test'})
 分かりを良くするため多少冗長に書いている箇所もあります。
 ご利用の際は、適宜修正することをオススメします。
 
-```javascript:Test.tsximport React from 'react';
+```typescript:Test.tsx
+import React from 'react';
 import { Text, StyleSheet, Image, TouchableHighlight } from 'react-native';
 import { Container, Header, Body, Title, View, Picker, Content } from 'native-base';
 import CameraRoll from '@react-native-community/cameraroll';
