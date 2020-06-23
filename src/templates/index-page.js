@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import Adsense from '../components/Adsense';
 
 export const IndexPageTemplate = ({
   image,
@@ -67,6 +68,9 @@ export const IndexPageTemplate = ({
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
+              <div className="column is-12">
+                <Adsense />
+              </div>
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2" style={{backgroundColor : '#658DC6', color : '#FFF', padding : 15, borderRadius : '0.50em', }}>
                     {heading}
