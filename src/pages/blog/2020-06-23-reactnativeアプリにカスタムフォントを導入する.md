@@ -12,7 +12,6 @@ tags:
   - react-native
   - カスタムフォント
   - ttf
-  - ""
 ---
 ## 前提条件
 
