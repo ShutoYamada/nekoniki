@@ -15,6 +15,7 @@ import {
   TwitterShareButton,
   TwitterIcon
 } from 'react-share';
+import WideAdsense from '../components/WideAdsense';
 
 export const BlogPostTemplate = ({
   content,
@@ -37,6 +38,7 @@ export const BlogPostTemplate = ({
               {title}
             </h1>
             <p style={{border : '1px solid #658DC6', borderRadius : '0.5em', padding : 20}} >{description}</p>
+            <WideAdsense />
             <PostContent content={content} />
             <SNSSection title={title} articleUrl={url} />
             {tags && tags.length ? (
