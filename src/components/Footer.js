@@ -6,6 +6,7 @@ import facebook from '../img/social/facebook.svg'
 import instagram from '../img/social/instagram.svg'
 import twitter from '../img/social/twitter.svg'
 import vimeo from '../img/social/vimeo.svg'
+import WideAdsense from './WideAdsense';
 
 const Footer = class extends React.Component {
   render() {
@@ -17,6 +18,9 @@ const Footer = class extends React.Component {
             alt="Nekoniki"
             style={{ width: '14em', height: '10em' }}
           />
+        </div>
+        <div className="content has-text-centered">
+          <WideAdsense />
         </div>
         <div className="content has-text-centered has-text-white-ter" style={{backgroundColor : '#658DC6'}}>
           <div className="container has-text-white-ter" style={{backgroundColor : '#658DC6'}}>

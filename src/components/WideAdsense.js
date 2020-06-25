@@ -1,7 +1,7 @@
 import React from 'react';
 import AdSense from 'react-adsense';
   
-const Adsense = () => (
+const WideAdsense = () => (
     <div>
         <AdSense.Google
             client='ca-pub-8245101512786403'
@@ -13,4 +13,4 @@ const Adsense = () => (
     </div>
 );
   
-export default Adsense;
+export default WideAdsense;
