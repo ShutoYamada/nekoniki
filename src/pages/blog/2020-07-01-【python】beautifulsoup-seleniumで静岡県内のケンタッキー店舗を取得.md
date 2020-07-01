@@ -143,6 +143,12 @@ python kfc.py
 
 ![chromedriver2](/img/chromedriver2.png "chromedriver2")
 
+## おまけ
+今回のソースを`Git`に上げました。
+- [GitHub | ShutoYamada
+/
+kfc-scraping-shizuoka](https://github.com/ShutoYamada/kfc-scraping-shizuoka)
+
 ## まとめ
 今回はスクレイピングの学習をかねて`python`で`Selenium`と`BeautifulSoup`を用いたサンプルを作成しました。
 今後、機械学習や統計の学習をするつもりなので、大量のデータを取得する手法として非常に有益な学習ができました。
