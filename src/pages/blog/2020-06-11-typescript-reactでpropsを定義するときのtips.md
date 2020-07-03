@@ -11,7 +11,7 @@ featuredimage: /img/react.png
 tags:
   - react
   - react-native
-  - Typescript
+  - typescript
   - javascript
   - 型
   - Tips
