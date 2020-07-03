@@ -13,7 +13,6 @@ featuredpost: false
 featuredimage: /img/react-native.jpg
 tags:
   - react-native
-  - ReactNative
   - CameraRoll
   - react-native-cameraroll
   - カメラロール

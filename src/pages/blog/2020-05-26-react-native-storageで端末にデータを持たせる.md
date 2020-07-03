@@ -12,7 +12,6 @@ featuredpost: false
 featuredimage: /img/react-native.jpg
 tags:
   - react-native
-  - ReactNative
   - react-native-storage
   - DB
   - db

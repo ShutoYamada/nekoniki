@@ -12,7 +12,6 @@ description: >-
 featuredpost: false
 featuredimage: /img/react-native.jpg
 tags:
-  - ReactNative
   - react-native
   - react-native-ci-tools
   - クロスプラットフォーム
@@ -45,7 +44,8 @@ react-native-ci-tools bundle "nekoniki.app" "ネコニキのアプリ"
 
 これで識別子およびアプリ名が一括で変更できました。
 
-## 補足
+## 
+補足
 `iOS`と`Android`でそれぞれ異なる識別子、アプリ名を使いたいことがあると思います。
 その場合は先のコマンドにオプションを指定することで任意のプラットフォームのみ変更することが可能です。
 `iOS`は`-i`を、`Android`は`-a`を付けます。

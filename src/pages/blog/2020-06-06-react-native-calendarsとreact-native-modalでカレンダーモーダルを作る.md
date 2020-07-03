@@ -11,7 +11,6 @@ featuredpost: false
 featuredimage: /img/react-native.jpg
 tags:
   - react-native
-  - ReactNative
   - UI
   - カレンダー
   - モーダル
