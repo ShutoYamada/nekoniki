@@ -59,9 +59,9 @@ interface State {
  */
 const interpolationConfig : Animated.InterpolationConfigType = {
     // 入力される値(フレーム)
-    inputRange: [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300],
+    inputRange: [0, 75, 150, 225, 300],
     // 出力される値
-    outputRange: [0, -5, -10, -15, -10, -5, 0, -5, -10, -15, -10, -5, 0],
+    outputRange: [0, -15, 0, -15, 0],
 }
 
 export default class JumpViewTestScreen extends React.Component<{}, State> {
@@ -151,9 +151,9 @@ const AnimatedOriginalComponent = Animated.createAnimatedComponent(OriginalCompo
 ```ts
 const interpolationConfig : Animated.InterpolationConfigType = {
     // 入力される値(フレーム)
-    inputRange: [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300],
+    inputRange: [0, 75, 150, 225, 300],
     // 出力される値
-    outputRange: [0, -5, -10, -15, -10, -5, 0, -5, -10, -15, -10, -5, 0],
+    outputRange: [0, -15, 0, -15, 0],
 }
 ```
 
