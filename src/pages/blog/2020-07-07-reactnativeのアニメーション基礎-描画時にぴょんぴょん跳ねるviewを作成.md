@@ -43,7 +43,7 @@ tags:
 
 下記は`描画が終わったタイミングで2回だけその場でぴょんぴょん跳ねるView`の実装例です。
 
-```typescript:title=test.tsx
+```typescript:title=Test.tsx
 import React from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
 
@@ -64,7 +64,7 @@ const interpolationConfig : Animated.InterpolationConfigType = {
     outputRange: [0, -15, 0, -15, 0],
 }
 
-export default class JumpViewTestScreen extends React.Component<{}, State> {
+export default class Test extends React.Component<{}, State> {
 
     /**
      * constructor
