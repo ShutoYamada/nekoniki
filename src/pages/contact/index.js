@@ -40,8 +40,9 @@ export default class Index extends React.Component {
           <div className="container">
             <div className="content">
               <h1 style={{backgroundColor : '#658DC6', color : '#FFF', marginBottom : 20, padding : 15, borderRadius : '0.50em'}} >
-                お問い合わせ
+                依頼・お問い合わせ
               </h1>
+              <p style={{color : '#658dC6'}}>ご依頼・お問い合わせを受け付けております。<br/>お仕事のご依頼の場合、メールアドレスをご入力ください。</p>
               <form
                 name="contact"
                 method="post"
