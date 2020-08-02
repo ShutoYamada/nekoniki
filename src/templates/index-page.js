@@ -85,7 +85,7 @@ export const IndexPageTemplate = ({
                 </div>
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2" style={{backgroundColor : '#658DC6', color : '#FFF', padding : 15, borderRadius : '0.50em'}}>
-                    投稿記事一覧
+                    最新記事
                   </h3>
                   <BlogRoll />
                   <div className="column is-12 has-text-centered">
