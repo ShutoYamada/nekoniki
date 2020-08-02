@@ -29,10 +29,23 @@ title: このサイトについて
 * 高校在学中にちょっとだけアルゴリズムに触れる
 * `2011年`.高校卒業
 * `2011年`.静岡県内の4年制大学に入学(経営学・情報学)
-* 大学在学中は所属サークルのWebページ開発等を行う(ほぼ見様見真似)
+* 大学在学中は所属サークルのWebページ開発等を行う
 * `2015年`.大学卒業
 * `2015年`.静岡県内のIT系に入社
 * `2015年〜`主に`Javascript`や`C#`を扱いBtoB系システム開発に従事
+
+### 技術スタック
+* Javascript
+* Typescript
+* GoogleAppScript
+* Java
+* C#
+* Python
+* React
+* ReactNative
+* Gatsby
+* Django
+* Docker
 
 ### 関連サイト
 * [Qiita](https://qiita.com/nekoniki)
