@@ -61,7 +61,7 @@ tags:
 参考
 - [teratail API v1.0](https://teratailv1.docs.apiary.io/)
 
-```GAS
+```javascript
 /**
  * 対象となる質問を取得
  */
@@ -117,7 +117,7 @@ function getTargetQuestions() {
 `https://api.ciscospark.com/v1/messages`で送信します。
 必要なのは`送り先のルームID`と`Webexのアクセストークン`です。
 
-```GAS
+```javascript
 function main() {
   // 先のgetTargetQuestions()で対象の質問を取得
   const questions = getTargetQuestions();
