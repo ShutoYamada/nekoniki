@@ -16,9 +16,10 @@ title: このサイトについて
 
 ### 基本情報
 
+* 本名：山田脩人
 * 静岡在住の20代SE
 * 普段は業務で主にはフロントサイドを開発
-* 個人開発をやってみるものの、なかなかうまくいかない
+* 個人開発に興味あり
 * 将来的にはフリーもしくは兼業で、会社に縛られず働きたい
 * 資産形成もちょっとやってる
 * ブログをいくつか運営
@@ -43,13 +44,22 @@ title: このサイトについて
 * Python
 * React
 * ReactNative
-* Gatsby
+* GatsbyJS
+* NextJS
 * Django
 * Docker
 
 ### 関連サイト
-* [Qiita](https://qiita.com/nekoniki)
-* [teratail](https://teratail.com/users/nekoniki)
+
+#### [GitHub](https://github.com/ShutoYamada)
+
+[![trophy](https://github-profile-trophy.vercel.app/?username=ShutoYamada)](https://github.com/ryo-ma/github-profile-trophy) ![My GitHub State](https://github-readme-stats.vercel.app/api?username=shutoyamada&show_icons=true&count_private=true) ![My GitHub Lang](https://github-readme-stats.vercel.app/api/top-langs/?username=shutoyamada&layout=compact)
+
+#### [Qiita](https://qiita.com/nekoniki)
+
+[![My Qiita posts](https://qiita-badge.apiapi.app/s/nekoniki/posts.svg)](http://qiita.com/nekoniki) [![My Qiita contributions](https://qiita-badge.apiapi.app/s/nekoniki/contributions.svg)](http://qiita.com/nekoniki) [![My Qiita followers](https://qiita-badge.apiapi.app/s/nekoniki/followers.svg)](http://qiita.com/nekoniki)
+
+#### [teratail](https://teratail.com/users/nekoniki)
 
 ### 資格
 
