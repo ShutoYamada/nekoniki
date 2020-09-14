@@ -42,6 +42,8 @@ tags:
 しかし、`v6`系では廃止されたらしく、指定には少し工夫が必要です。
 
 ### `v6`系で通知チャンネルを指定する方法
+
+#### `MainActivity`の修正
 指定は`Android`のネイティブコードの中で行います。
 対象は`MainActivity.java`で`android/app/src/main/java/com/{appName}`にあります。
 
@@ -102,6 +104,25 @@ public class MainActivity extends ReactActivity {
 
 ```
 
+#### `firebase.json`の作成
+さらにデフォルトの通知チャンネルを指定するため`firebase.json`に記載を追加します。
+未作成の場合は作成しましょう。
+
+```shell
+touch firebse.json
+```
+
+```json:title=firebase.json
+{
+  "react-native": {
+    "messaging_android_notification_channel_id": "notification"
+  }
+}
+```
+
 ## まとめ
 今回は、`react-native-firebase`のプッシュ通知を`Android 8`以降のバージョンで通知ポップアップを表示させるため、通知チャンネルを設定する方法をご紹介しました。
 通知の設定周りについては`iOS`の方が面倒な印象がありますが、`Android`も`OS`のバージョンによって対応が異なるため、それなりに手間がかかりますね。
+
+## 参考文献
+- [Qiita | React Native Firebase v6 + Android 8+ でプッシュ通知受信時のポップアップ表示させる](https://qiita.com/myzkyy/items/4c286c3d096c5aaa2b3c)
