@@ -257,3 +257,24 @@ export default class ModalTestScreen extends React.Component<Props, State> {
 今回は、`react-native-modal`を利用して際に、複数モーダルの開閉を連続して行いたい場合の記述方法についてご紹介しました。
 機能が複雑なアプリになるにつれ、意図しないところで連続してモーダルを呼び出すような処理の流れになることはしばしば見受けられます(そもそもそういったフローごと見直すのも手だと思います)。
 そういった場合に、今回の記事が参考になったら幸いです。
+
+## ReactNativeの学習方法
+`react-native`の学習には、大元である`react`の知識もさることながら、`iOS`や`Android`といったネイティブの知識も必要になってきます。
+
+いずれかのバックボーンを元々持っている人にとっては取り掛かりやすいかもしれませんが、`Javascript`をようやく覚えて**「さあスマホアプリを作ろう！」**と思い立った方にはなかなか高いハードルです。
+
+そういった場合、書籍や動画といった体系的にまとめられた教材を使用するのが有効です。
+
+ひととおりの基本知識を蓄えてから各種ライブラリや`redux`といったフレームワークを利用することになるため、何は無くとも基礎固めをしていきましょう。
+
+以下に管理人が実際に学習した教材を紹介します。
+
+### React Native -JavaScriptによるiOS/Androidアプリ開発の実践
+
+特に初心者〜中級者にオススメの書籍です。
+`ReactNative`の体系的な知識をぎゅっと詰め込んだ一冊となっており、
+お題目に沿って進めていくことで`TODOアプリ`を開発することができます。
+
+**※ページ量が嵩むため、`Kindle`版の購入をオススメします。**
+
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;zoom: 1;overflow: hidden;"><div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0;"><a href="https://hb.afl.rakuten.co.jp/hgc/g0000017.scg7kd52.g0000017.scg7l6f0/kaereba_main_202009292257020471?pc=https%3A%2F%2Fproduct.rakuten.co.jp%2Fproduct%2F-%2F42b4a32dd1c21ede6c168baa30b83770%2F&m=http%3A%2F%2Fm.product.rakuten.co.jp%2Fproduct%2F42b4a32dd1c21ede6c168baa30b83770%2F" target="_blank" ><img src="https://thumbnail.image.rakuten.co.jp/ran/img/2001/0009/784/297/113/919/20010009784297113919_1.jpg" style="border: none;" /></a></div><div class="kaerebalink-info" style="line-height:120%;zoom: 1;overflow: hidden;"><div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="https://hb.afl.rakuten.co.jp/hgc/g0000017.scg7kd52.g0000017.scg7l6f0/kaereba_main_202009292257020471?pc=https%3A%2F%2Fproduct.rakuten.co.jp%2Fproduct%2F-%2F42b4a32dd1c21ede6c168baa30b83770%2F&m=http%3A%2F%2Fm.product.rakuten.co.jp%2Fproduct%2F42b4a32dd1c21ede6c168baa30b83770%2F" target="_blank" >Ｒｅａｃｔ　Ｎａｔｉｖｅ ＪａｖａＳｃｒｉｐｔによるｉＯＳ／Ａｎｄｒｏｉｄア  /技術評論社/〓木健介</a><div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="https://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail" style="margin-bottom:5px;"></div><div class="kaerebalink-link1" style="margin-top:10px;"><div class="shoplinkrakuten" style="display:inline;margin-right:5px"><a href="https://hb.afl.rakuten.co.jp/hgc/g0000017.scg7kd52.g0000017.scg7l6f0/kaereba_main_202009292257020471?pc=https%3A%2F%2Fproduct.rakuten.co.jp%2Fproduct%2F-%2F42b4a32dd1c21ede6c168baa30b83770%2F&m=http%3A%2F%2Fm.product.rakuten.co.jp%2Fproduct%2F42b4a32dd1c21ede6c168baa30b83770%2F" target="_blank" >楽天市場</a></div><div class="shoplinkamazon" style="display:inline;margin-right:5px"><a href="https://www.amazon.co.jp/gp/search?keywords=React%20Native&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&tag=stym112204-22" target="_blank" >Amazon</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div>
