@@ -7,7 +7,7 @@ description: |-
   FirebaseはスマホやWebアプリのバックエンドとして非常に優秀で、認証や通知、分析にストレージ・DBなど幅広い用途で使用することができます。
   ReactNativeアプリでもライブラリであるreact-native-firebaseが提供されているため比較的簡単に組み込むことができます。
   今回はそのセットアップ手順をご紹介します。
-featuredpost: false
+featuredpost: true
 featuredimage: /img/react-native.jpg
 tags:
   - react-native
