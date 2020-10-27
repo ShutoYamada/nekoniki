@@ -114,6 +114,8 @@ cd ios && pod install
 アプリの設定機能です。
 今までアプリに`config`として組み込んでいたデータをクラウドにおく事で、アプリの更新をすることなく変更を加えることができます。
 
+- [【ReactNative】react-native-firebase/remote-configを使う](https://nekoniki.com/20201027_react-native-firebase-remote-config)
+
 ## まとめ
 今回は`react-native-firebase`のセットアップと、利用できる機能一覧についてご紹介しました。
 個別の機能についてはボリュームも大きいため、別記事に起こしていく予定です。
