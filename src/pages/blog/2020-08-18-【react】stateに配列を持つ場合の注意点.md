@@ -24,7 +24,6 @@ tags:
 具体的には要素追加の`push`や要素削除の`splice`などがあたります。
 
 ```javascript
-
 // state定義
 this.state = {
   list : []
