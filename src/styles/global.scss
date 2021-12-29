@@ -8,14 +8,12 @@ p {
 }
 
 h2 {
-  
 }
 
 .gatsby-highlight {
-  
 }
 
-pre[class*='language-'] {
+pre[class*="language-"] {
   background-color: #1c1b1b;
   display: block;
   margin: 0 0 20px !important ;
@@ -24,23 +22,23 @@ pre[class*='language-'] {
   border-radius: 0 4px 4px 4px;
 }
 
-code[class*='language-'],
-pre[class*='language-'] {
+code[class*="language-"],
+pre[class*="language-"] {
   color: #fff;
-  padding: 0;
+  padding: 0 !important;
 }
 
-:not(pre)>code[class*='language-text'] {
+:not(pre) > code[class*="language-text"] {
   padding: 2px 10px 3px 12px;
-  margin: 0 ;
-  color : #f14668 !important ;
+  margin: 0;
+  color: #f14668 !important ;
   text-shadow: none !important ;
   background-color: whitesmoke !important ;
 }
 
 .gatsby-highlight-code-line {
   background: #545454;
-  display: block
+  display: block;
 }
 
 .gatsby-code-title {
