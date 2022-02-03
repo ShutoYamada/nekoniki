@@ -23,7 +23,7 @@ tags:
 `state`に配列としてデータを持っていて更新する場合、取得した配列を破壊的に変更してはいけません。
 具体的には要素追加の`push`や要素削除の`splice`などがあたります。
 
-```jsx
+```js
 import {useState} from 'react';
 
 const AnyComponent = () => {
