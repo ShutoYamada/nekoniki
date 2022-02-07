@@ -56,9 +56,7 @@ cdk init sample-app --language typescript
 
 - cdk-workshop
   - bin
-    - cdk-workshop.ts
   - lib
-    - cdk-workshop-stack.ts
   - node_modules
   - test
   - .gitignore
@@ -84,7 +82,7 @@ mkdir lambda && touch lambda/hello.js
 
 `hello.js`の中身は以下のようにしましょう。
 
-```js:hello.js
+```javascript
 exports.handler = async function (event) {
   console.log("request:", JSON.stringify(event, undefined, 2));
   return {
@@ -99,7 +97,7 @@ exports.handler = async function (event) {
 作成した`hello.js`を使うようにスタックを更新します。
 `lib/cdk-workshop-stack.ts`を以下のように編集しましょう。
 
-```ts:lib/cdk-workshop-stack.ts
+```typescript
 import * as cdk from 'aws-cdk-lib';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 
@@ -181,7 +179,7 @@ cdk deploy
 今度は作成した`Lambda`に独自で定義した実行ロールを付けて、さらに`VPC`の中に配置します。
 `lib/cdk-workshop-stack.ts`を以下のように修正しましょう。
 
-```ts:lib/cdk-workshop-stack.ts
+```typescript
 import * as cdk from 'aws-cdk-lib';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
