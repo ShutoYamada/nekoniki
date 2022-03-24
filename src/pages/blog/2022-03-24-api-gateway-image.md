@@ -56,10 +56,13 @@ exports.handler = async (event, context) => {
       };
     }
   } catch (e) {
-    res.body = JSON.stringify({ success: false, message: "ERROR" + e.message });
-  } finally {
-    await client?.end();
-    return res;
+    return {
+      statusCode: 500,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: e.message
+    }
   }
 };
 ```
@@ -81,10 +84,13 @@ exports.handler = async (event, context) => {
       body: image.toString("base64")
     };
   } catch (e) {
-    res.body = JSON.stringify({ success: false, message: "ERROR" + e.message });
-  } finally {
-    await client?.end();
-    return res;
+    return {
+      statusCode: 500,
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: e.message
+    }
   }
 };
 ```
