@@ -22,7 +22,7 @@ tags:
 
 最終的に出来上がるのは以下のような構成のリソース群です。
 
-![aws_cross_account_cidd](/img/aws_cross_account_cidd.png "aws_cross_account_cidd")
+![aws_cross_account_cicd](/img/aws_cross_account_cicd.png "aws_cross_account_cicd")
 
 意図としては、ソース管理は親となるアカウントで一元管理したいけど、パイプラインを含めて環境依存のリソースは全て、子となる環境アカウント側で持ちたいため、このような構成を目指しています。
 
@@ -570,7 +570,7 @@ export class Stack3 extends Stack {
 
 これでクロスアカウントのパイプラインの構築ができました。
 出来上がった構成図をあらためて載せておきます。
-![aws_cross_account_cidd](/img/aws_cross_account_cidd.png "aws_cross_account_cidd")
+![aws_cross_account_cicd](/img/aws_cross_account_cicd.png "aws_cross_account_cicd")
 
 ## まとめ
 今回はクラメソさんの記事を参考に、クロスアカウントでCI/CDを構築するのをCDKを用いて行いました。
