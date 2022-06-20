@@ -15,15 +15,27 @@ tags:
   - codecommit
 ---
 
-
 ## 前提
 下地として、クラスメソッドさんの下記記事を参考にしています。
 
 - [DevelopersIO | CodePipelineでアカウントをまたいだパイプラインを作成してみる](https://t.co/R0umZSRJlZ)
 
+最終的に出来上がるのは以下のような構成のリソース群です。
+
+![aws_cross_account_cidd](/img/aws_cross_account_cidd.png "aws_cross_account_cidd")
+
+意図としては、ソース管理は親となるアカウントで一元管理したいけど、パイプラインを含めて環境依存のリソースは全て、子となる環境アカウント側で持ちたいため、このような構成を目指しています。
+
 ## 環境アカウント側でパイプラインの構築に必要なリソースを定義(Stack1)
+まずは実際にパイプラインが動く環境側で、`IAM`ロール等のリソースを作成していきます。
+CICDが参照する`CodeCommit`のリポジトリがあるアカウント側のIDを取得しておきましょう。
 
 ### CodePipeline用のロールを作成
+
+`CodePipeline`用のサービスロールを作成します。
+このロールが後で作成する、親アカウント側の`CodeCommit`を操作するロールを`AssumeRole`するため、ポリシー内で親アカウントのIDを指定して宣言しています。
+
+<details><summary>createCodePipelineRole</summary><div>
 
 ```ts
 import {Stack, CfnOutput} from 'aws-cdk-lib';
@@ -76,7 +88,14 @@ const createCodePipelineRole = (stack: Stack, sourceAccountId: string): iam.Role
 }
 ```
 
+</div></details>
+
 ### CodeBuild用のロールを作成
+
+`CodeBuild用のロールを作成`用のサービスロールを作成します。
+このロールは特にクロスアカウント固有の設定もなく、`CodeBuild`を動かす上で必要な権限を宣言しています。
+
+<details><summary>createCodeBuildRole</summary><div>
 
 ```ts
 import {Stack, CfnOutput} from 'aws-cdk-lib';
@@ -121,9 +140,16 @@ const createCodeBuildRole = (stack: Stack): iam.Role => {
 }
 ```
 
+</div></details>
+
 ### Artifactリソースの作成
 
+続いて`CodePipeline`中で各アクションがソースのやりとりに使用する`Artifact`リソースを作成します。
+特に`CodeCommit`のロールは親のアカウント側にあるので、そちらからも参照できるように`S3`のバケットポリシーを設定し、かつ暗号化をするため`KMS`の`Key`を用いています。
+
 #### KMS Key
+
+<details><summary>createArtifactKey</summary><div>
 
 ```ts
 import {Stack} from 'aws-cdk-lib';
@@ -193,7 +219,11 @@ const createArtifactKey = (stack: Stack, sourceAccountId: string, codePipelineSe
 }
 ```
 
+</div></details>
+
 #### S3バケット
+
+<details><summary>createArtifactBucket</summary><div>
 
 ```ts
 import {Stack} from 'aws-cdk-lib';
@@ -259,7 +289,11 @@ const createArtifactBucket = (stack: Stack, sourceAccountId: string, cryptKey: k
 }
 ```
 
+</div></details>
+
 ### 上記を使用するStackを作る
+ここまでのリソースを作成するためにスタックにまとめます。
+パラメータとしては親アカウントのIDを渡してあげる必要があります。
 
 ```ts
 export class Stack1 extends Stack {
@@ -277,8 +311,13 @@ export class Stack1 extends Stack {
 ```
 
 ## 親アカウント側でCodeCommitと環境アカウントのArtifactを触れるロールを定義(Stack2)
+今度は親アカウント側で`CodeCommit`を触れる権限+先ほど作成した環境アカウント側の`Artifact`リソースを触れる権限を持ったロールを作成します。
+このロールが2つのアカウントを跨いでリソースをやりとりすることで、クロスアカウントのパイプラインを実現しています。
+そのため、記述は簡素ですが要となるロールです。
 
 ### CodeCommitの操作+環境アカウントのリソースの操作権限を持つロールを作成
+
+<details><summary>createCodeCommitAccessRole</summary><div>
 
 ```ts
 import {Stack, CfnOutput} from 'aws-cdk-lib';
@@ -338,7 +377,11 @@ const createCodeCommitAccessRole = (stack: Stack, envAccountId: string, sourceRe
 }
 ```
 
+</div></details>
+
 ### スタック
+先ほどの`createCodeCommitAccessRole`を呼び出すロールです。
+`Stack1`で作成したリソースの情報を渡しています。
 
 ```ts
 export class Stack2 extends Stack {
@@ -356,7 +399,13 @@ export class Stack2 extends Stack {
 ```
 
 
-## Todo...
+## 環境アカウント側でパイプラインを構築(Stack3)
+最後に実際にパイプラインを環境アカウント側で構築します。
+基本的に今までのスタックで作成したリソースを指定して`CodePipeline`を構築するだけですが、パラメータ多いため長いコードになっています。
+
+### CI/CDのリソースを作成
+
+<details><summary>createPipeline</summary><div>
 
 ```ts
 import * as cdk from 'aws-cdk-lib';
@@ -369,35 +418,28 @@ import * as codepipeline from 'aws-cdk-lib/aws-codepipeline';
 import * as actions from 'aws-cdk-lib/aws-codepipeline-actions';
 
 type Props = {
-    prefix: string;
+    // 対象ブランチ
     targetBranch: string;
-    // バケットARN
+    // ArtifactバケットARN
     artifactBucketArn: string;
+    // Artifact暗号鍵ARN
     artifactEncryptKeyArn: string;
     // ソースリポジトリARN
     sourceRepositoryArn: string;
     // CodeCommitのRole ARN
     codeCommitAccessRoleArn: string;
-     // CodeBuildのRole ARN
+    // CodeBuildのRole ARN
     codeBuildServiceRoleArn: string;
-     // CodePipelineのRole ARN
+    // CodePipelineのRole ARN
     codePipelineServiceRoleArn: string;
+    // 出力先バケット ARN
     exportBucketArn: string;
-    apiUrl: string;
-    apiKey: string;
-    userPoolId: string;
-    userPoolClientId: string;
-}
-
-type Response = {
-
 }
 
 /**
- * GOFUNのCI/CD構築
+ * CI/CD構築
  */
-export default (stack: cdk.Stack, {
-    prefix,
+const createPipeline = (stack: cdk.Stack, {
     targetBranch,
     artifactBucketArn,
     artifactEncryptKeyArn,
@@ -406,30 +448,27 @@ export default (stack: cdk.Stack, {
     codeBuildServiceRoleArn,
     codePipelineServiceRoleArn,
     exportBucketArn,
-    apiUrl,
-    apiKey,
-    userPoolId,
-    userPoolClientId,
-}: Props): Response => {    
+}: Props) => {    
 
      // ソースコードのリポジトリを取得
     const repository = codecommit.Repository.fromRepositoryArn(stack, `SourceRepository`, sourceRepositoryArn);
+    // CodeCommit用のロールを取得
     const codeCommitRole = iam.Role.fromRoleArn(stack, 'CodeCommitRole', codeCommitAccessRoleArn, {
         mutable: false
     });
+    // CodeBuildのサービスロールを取得
     const codeBuildRole = iam.Role.fromRoleArn(stack, 'CodeBuildRole', codeBuildServiceRoleArn);
+    // CodePipelineのサービスロールを取得
     const codePipelineRole = iam.Role.fromRoleArn(stack, 'CodePipelineRole', codePipelineServiceRoleArn);
+    // Artifactバケットの鍵を取得
     const encryptionKey = kms.Key.fromKeyArn(stack, 'EncryptKey', artifactEncryptKeyArn);
 
     // CodePipelineで使用するArtifactを定義
     const sourceOutput = new codepipeline.Artifact(); // ソースファイルのアウトプット先
     const buildOutput = new codepipeline.Artifact();  // ビルド結果のアウトプット先
 
-
-
     // フロントエンドのソースコード用
     const frontBucket = s3.Bucket.fromBucketArn(stack, `FrontBucket`, exportBucketArn);
-
     const artifactBucket = s3.Bucket.fromBucketAttributes(stack, 'ArtifactBucket', {
         bucketArn: artifactBucketArn,
         encryptionKey,
@@ -470,30 +509,7 @@ export default (stack: cdk.Stack, {
                             role: codeBuildRole,
                             encryptionKey,
                             environmentVariables: {
-                                // API URL
-                                "REACT_APP_API_BASE": {
-                                    type: codebuild.BuildEnvironmentVariableType.PLAINTEXT,
-                                    value: apiUrl,
-                                },
-                                // API KEY
-                                "REACT_APP_API_KEY": {
-                                    type: codebuild.BuildEnvironmentVariableType.PLAINTEXT,
-                                    value: apiKey,
-                                },
-                                "REACT_APP_IS_PRODUCT": {
-                                    type: codebuild.BuildEnvironmentVariableType.PLAINTEXT,
-                                    value: prefix === 'prod',
-                                },
-                                // UserPool ID
-                                "REACT_APP_USER_POOLS_ID": {
-                                    type: codebuild.BuildEnvironmentVariableType.PLAINTEXT,
-                                    value: userPoolId,
-                                },
-                                // UserPoolClient ID
-                                "REACT_APP_USER_POOLS_WEB_CLIENT_ID": {
-                                    type: codebuild.BuildEnvironmentVariableType.PLAINTEXT,
-                                    value: userPoolClientId,
-                                }
+                                // 何かCodeBuildの環境変数があれば
                             }
                         }),
                         runOrder: 2,
@@ -515,13 +531,54 @@ export default (stack: cdk.Stack, {
             }
         ]
     });
-
-    return {
-        
-    }
 }
 
 ```
+
+</div></details>
+
+### スタック
+`createPipeline`を呼び出すためにスタック化しています。
+
+```ts
+export class Stack3 extends Stack {
+  constructor(scope: Construct, id: string, props: Props) {
+    super(scope, id, props);
+
+    const TARGET_BRANCH = "master";
+    const SOURCE_REPOSITORY_ARN = "XXXXXXXXXXX";
+    const ARTIFACT_BUCKET_ARN = "XXXXXXXXXXX";
+    const ARTIFACT_ENCRYPT_KEY_ARN = "XXXXXXXXXXX";
+    const CODE_COMMIT_ACCESS_ROLE_ARN = "XXXXXXXXXXX";
+    const CODE_BUILD_SERVICE_ROLE_ARN = "XXXXXXXXXXX";
+    const CODE_PIPELINE_SERVICE_ROLE_ARN = "XXXXXXXXXXX";
+    const EXPORT_BUCKET_ARN = "XXXXXXXXXXX";
+
+    createPipeline(this, {
+        targetBranch: TARGET_BRANCH,
+        artifactBucketArn: ARTIFACT_BUCKET_ARN,
+        artifactEncryptKeyArn: ARTIFACT_ENCRYPT_KEY_ARN,
+        sourceRepositoryArn: SOURCE_REPOSITORY_ARN,
+        codeCommitAccessRoleArn: CODE_COMMIT_ACCESS_ROLE_ARN,
+        codeBuildServiceRoleArn: CODE_BUILD_SERVICE_ROLE_ARN,
+        codePipelineServiceRoleArn: CODE_PIPELINE_SERVICE_ROLE_ARN,
+        exportBucketArn: EXPORT_BUCKET_ARN,
+    });
+  }
+}
+```
+
+これでクロスアカウントのパイプラインの構築ができました。
+出来上がった構成図をあらためて載せておきます。
+![aws_cross_account_cidd](/img/aws_cross_account_cidd.png "aws_cross_account_cidd")
+
+## まとめ
+今回はクラメソさんの記事を参考に、クロスアカウントでCI/CDを構築するのをCDKを用いて行いました。
+あとは環境アカウントを何個も作って「開発環境」「検証環境」といった具合に、それぞれの環境でCI/CDを組み上げることで、互いの環境に影響を及ぼさないようなCI/CDを構築することができます。
+
+おそらく、人によってはデプロイ先が`S3`でなく`ECS`や`EC2`だったりするケースもあると思うので、その際はこの記事をベースにいくらか改良が必要になります。
+
+今回の内容が役立ちましたら幸いです。
 
 
 ## 参考
