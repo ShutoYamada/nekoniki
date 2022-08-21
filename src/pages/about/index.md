@@ -67,8 +67,10 @@ title: このサイトについて
 
 - 応用情報技術者
 - 統計検定 2 級
+- G 検定
 - 2 級ウェブデザイン技能士
 - カラーコーディネータ(3 級)
 - AWS Certified Cloud Practitioner
 - AWS Certified Solutions Architect – Associate
-- AWS Certified Solutions Architect – Professional
+- AWS Certified Developer - Associate
+- AWS Certified Developer - Professional
