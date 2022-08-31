@@ -216,7 +216,7 @@ export class TestStack extends Stack {
 
 基本は`useEffect`内で`WebSocket`を用いて通信を管理し、受信したメッセージを画面に表示しています。
 
-```ts:App.tsx
+```ts:title=App.tsx
 import { useEffect, useState } from "react";
 
 const App = () => {
