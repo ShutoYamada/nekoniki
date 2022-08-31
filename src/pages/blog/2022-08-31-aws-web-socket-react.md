@@ -39,7 +39,7 @@ tags:
 
 ### $connect
 
-```js:lambda/connect/index.js
+```javascript:title=lambda/connect/index.js
 const AWS = require("aws-sdk");
 
 exports.handler = async (event, context) => {
@@ -65,7 +65,7 @@ exports.handler = async (event, context) => {
 
 ### $disconnect
 
-```js:lambda/disconnect/index.js
+```javascript:title=lambda/disconnect/index.js
 const AWS = require("aws-sdk");
 
 exports.handler = async (event, context) => {
