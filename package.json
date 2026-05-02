@@ -38,7 +38,7 @@
     "react-dom": "^16.8.4",
     "react-helmet": "^6.0.0",
     "react-share": "^4.1.0",
-    "uuid": "^7.0.0"
+    "uuid": "^14.0.0"
   },
   "keywords": [
     "gatsby"
